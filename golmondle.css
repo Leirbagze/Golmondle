@@ -19,8 +19,13 @@ th {
 .afficher {
     display: table-row;
 }
-td {
+tr {
     display: none;
+}
+#Titre {
+    display: table-row;
+}
+td {
     background-color: rgb(238, 89, 89);
     border: 2px solid rgb(143, 53, 53);
     width: 5em;
