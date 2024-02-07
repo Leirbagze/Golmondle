@@ -17,8 +17,8 @@ function verifierTouche(event) {
         if ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122)) {
             if (event.key===tableauGolmons[k].id[i]){
                 test=true;
-                alert("test");
             }
+            alert(test);
         }
     }
     if (event.key === "Enter") {
