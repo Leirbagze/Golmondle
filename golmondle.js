@@ -11,9 +11,9 @@ function afficherLigne(golnom) {
 function verifierTouche(event) {
     if (event.key === "Enter") {
         let valeurEntree = document.getElementById("entree").value;
-        let tableauNoms = Array.from(document.getElementsByClassName("golnom"));
+        let tableauNoms = Array.from(document.getElementsByTagName("tr"));
         let nomTrouve = tableauNoms.some(function(balise) {
-            return balise.textContent === valeurEntree;
+            return balise.id === valeurEntree;
         });
         if (nomTrouve){
             afficherLigne(valeurEntree);
