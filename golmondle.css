@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body  {
+    font-family: Roboto;
+}
+
 entree {
     background-color: rgb(165, 98, 67);
     width:50%;
@@ -7,15 +13,38 @@ entree {
     align-items: center;
     height: 5em;
 }
+
+
+entree > button {
+    background-color: rgb(192, 255, 129);
+    border-radius: 10%;
+    border: none;
+    padding: 1em;
+    margin: 0.5em;
+}
+
+
+entree > button:hover {
+    background-color: rgb(222, 252, 192);
+    cursor: pointer;
+    
+}
+
 input {
     padding: 1em;
     width: 60em;
 }
+
+
 th {
     background-color: #ffffff;
-    border: 2px solid rgb(140, 140, 140);
     height: 5em;
 }
+
+th:nth-child(2n) {
+    background-color: #bebebe;
+}
+
 .afficher {
     display: table-row;
 }
@@ -27,7 +56,6 @@ tr {
 }
 td {
     background-color: rgb(238, 89, 89);
-    border: 2px solid rgb(143, 53, 53);
     width: 5em;
     height: 5em;
 }
@@ -37,7 +65,6 @@ td:nth-child(2n) {
 table {
     width:50%;
     margin: auto;
-    border: 4px solid rgb(140 140 140);
     font-family: sans-serif;
     font-size: 0.8rem;
     letter-spacing: 1px;
