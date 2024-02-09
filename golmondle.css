@@ -38,11 +38,12 @@ entree {
 }
   
   .dropdown:hover .dropdown-content {
+    cursor: pointer;
     display: block;
 }
 
 entree > button {
-    background-color: rgb(192, 255, 129);
+    background-color: rgb(255, 255, 255);
     border-radius: 10%;
     border: none;
     padding: 1em;
@@ -51,9 +52,8 @@ entree > button {
 
 
 entree > button:hover {
-    background-color: rgb(222, 252, 192);
+    background-color: rgb(255, 238, 0);
     cursor: pointer;
-    
 }
 
 input {
