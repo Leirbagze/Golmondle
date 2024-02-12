@@ -17,7 +17,7 @@
             <h1>Devinez le Golmon du jour</h1>
             <entree>    
                 <input id="entree" type="text" placeholder="Entrez un golmon pour commencer" onkeydown="verifierTouche(event)"/>
-                <button onclick="">💩</button>
+                <button onclick="changerCouleur()">💩</button>
             </entree>
             <div class="dropdown-content">
                 <a id="DYan" onclick="completer('Yan')">Yan</a>
@@ -32,7 +32,7 @@
                 <a id="DQuentin" onclick="completer('Quentin')">Quentin</a>
             </div>
         </div>
-        <table>
+        <table id="test">
             <tr id="Titre">
                 <th>Golmon</th>
                 <th>sexe</th>

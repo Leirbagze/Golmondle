@@ -15,33 +15,45 @@ function afficherBloc(golnom) {
 
 
 var test = new Array(10);
-for (k=0;k<10;k++){test[k]=true;}
+var tmp = new Array(10);
+var uesjbgkusgs = new Array(10);
+for (k=0;k<10;k++){uesjbgkusgs[k]=0;}
+for (k=0;k<10;k++){test[k]=true; tmp[k]=false;}
 
 function verifierTouche(event) {
     let valeurEntree = document.getElementById("entree").value;
     let tableauGolmons = Array.from(document.getElementsByClassName("golmon"));
+    let entreeLettre=(event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122);
     for (k=0;k<10;k++){
-        console.log("debut for");
-        let i=valeurEntree.length;
         if (test[k]){
-            console.log(k);
-            console.log(i);
-            if ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122)) {
-                if (event.key===tableauGolmons[k].id[i]){
-                    test[k]=true;
-                    afficherBloc("D" + tableauGolmons[k].id);
+            if (entreeLettre || (event.keyCode == 8)){
+                let i=valeurEntree.length;
+                console.log(event.keyCode);
+                if (entreeLettre) {
+                    if (event.key===tableauGolmons[k].id[i]){
+                        test[k]=true;
+                        afficherBloc("D" + tableauGolmons[k].id);
+                    }
+                    else {
+                        tmp[k]=true;
+                        test[k]=false;
+                        uesjbgkusgs+=1;
+                    }
                 }
-                else {
-                    test[k]=false;
+                else { //si backspace (et entree non vide)
+                    if (test[k]=false){
+                        if (tmp[k]=true){
+                            test[k]=true;
+                        }
+                    }
                 }
             }
-            console.log(test[k]);
         }
         else {
-                cacherLigne("D" + tableauGolmons[k].id);
+            cacherLigne("D" + tableauGolmons[k].id);
         }
     }
-    console.log("fin");
+    for (kqegfq=0;kqegfq<10;kqegfq++){if (uesjbgkusgs[kqegfq]>0){tmp[kqegfq]=false;}}
     if (event.key === "Enter") {
         let nomTrouve = tableauGolmons.some(function(balise) {
             return balise.id === valeurEntree;
@@ -64,4 +76,12 @@ function completer(golmon){
         cacherLigne("D" + golmon);
         document.getElementById("entree").value = "";
     }
+}
+
+function changerCouleur(){
+    let randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    let nom = document.getElementById("Yan");
+    let cells = nom.getElementsByTagName("td");
+    var randomCellIndex = Math.floor(Math.random() * cells.length);
+    cells[randomCellIndex].style.backgroundColor = randomColor;
 }
