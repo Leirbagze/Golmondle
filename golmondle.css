@@ -1,14 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-body  {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+
+@font-face {
+    font-family: Rumpelstillskin;
+    src: url("Rumpelstiltskin-EPdj.ttf");
 }
 
+body {
+    font-family: Helvetica, sans-serif;
+    background-color: #e3e3e1;
+}
+
+.titre {
+    font-family: Rumpelstillskin;
+    font-size: 8em;
+    margin:0.1em;
+}
 
 h1 {
     text-align: center;
-
-    
 }
 
 entree {
@@ -108,18 +119,20 @@ td {
     box-shadow: inset 0 0 6px #000;
     width: 5em;
     height: 5em;
+    
 }
 td:nth-child(2n) {
     background-color: rgb(224, 59, 59);
 }
 table {
+    border-spacing: 7.5px;
     width:50%;
     margin: auto;
 
     font-size: 0.8rem;
     letter-spacing: 1px;
-    background-color: rgb(165, 98, 67);
-    border-top: 5px solid rgb(255, 255, 255);
+    background-color: rgb(202, 124, 87);
+
     
 }
 
