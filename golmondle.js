@@ -1,3 +1,5 @@
+const N = 20;
+
 function cacherLigne(golnom) {
     let ligneACacher = document.getElementById(golnom);
     ligneACacher.style.display = "none";
@@ -13,47 +15,15 @@ function afficherBloc(golnom) {
     ligne.style.display = "block";
 }
 
-
-var test = new Array(10);
-var tmp = new Array(10);
-var uesjbgkusgs = new Array(10);
-for (k=0;k<10;k++){uesjbgkusgs[k]=0;}
-for (k=0;k<10;k++){test[k]=true; tmp[k]=false;}
-
 function verifierTouche(event) {
     let valeurEntree = document.getElementById("entree").value;
+    let i=valeurEntree.length;
     let tableauGolmons = Array.from(document.getElementsByClassName("golmon"));
-    let entreeLettre=(event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122);
-    for (k=0;k<10;k++){
-        if (test[k]){
-            if (entreeLettre || (event.keyCode == 8)){
-                let i=valeurEntree.length;
-                console.log(event.keyCode);
-                if (entreeLettre) {
-                    if (event.key===tableauGolmons[k].id[i]){
-                        test[k]=true;
-                        afficherBloc("D" + tableauGolmons[k].id);
-                    }
-                    else {
-                        tmp[k]=true;
-                        test[k]=false;
-                        uesjbgkusgs+=1;
-                    }
-                }
-                else { //si backspace (et entree non vide)
-                    if (test[k]=false){
-                        if (tmp[k]=true){
-                            test[k]=true;
-                        }
-                    }
-                }
-            }
-        }
-        else {
-            cacherLigne("D" + tableauGolmons[k].id);
-        }
-    }
-    for (kqegfq=0;kqegfq<10;kqegfq++){if (uesjbgkusgs[kqegfq]>0){tmp[kqegfq]=false;}}
+    let lettre=event.key;
+    let nlettre=event.keyCode;
+    let entreeLettre=(nlettre >= 65 && nlettre <= 90) || (nlettre >= 97 && nlettre <= 122);
+    let entreeModif = entreeLettre || (nlettre == 8);
+    lireInput(valeurEntree,tableauGolmons,entreeModif);
     if (event.key === "Enter") {
         let nomTrouve = tableauGolmons.some(function(balise) {
             return balise.id === valeurEntree;
@@ -62,6 +32,32 @@ function verifierTouche(event) {
             afficherLigne(valeurEntree);
             cacherLigne("D" + valeurEntree);
             document.getElementById("entree").value = "";
+        }
+    }
+}
+
+function uidhuisnfsi(event){
+    let entreeLettre=(event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122);
+    console.log(entreeLettre || (event.keyCode == 8));
+    console.log(event.key);
+}
+
+function lireInput(valeurEntree,tableauGolmons,entreeModif) {
+    let i=valeurEntree.length;
+    let test=true;
+    for (k=0;k<10;k++){
+        if (entreeModif){
+            for (let p=0;p<i;p++){
+                if (!(valeurEntree[p]===tableauGolmons[k].id[i])){
+                    test=false;
+                }
+            }
+            if (test){
+                afficherBloc("D" + tableauGolmons[k].id);
+            }
+            else {
+                cacherLigne("D" + tableauGolmons[k].id);
+            }
         }
     }
 }
