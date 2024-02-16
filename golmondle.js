@@ -22,7 +22,9 @@ function verifierTouche(event) {
     let nlettre=event.keyCode;
     let entreeLettre=(nlettre >= 65 && nlettre <= 90) || (nlettre >= 97 && nlettre <= 122);
     let entreeModif = entreeLettre || (nlettre == 8);
-    lireInput(valeurEntree,tableauGolmons,entreeModif);
+    if (entreeModif){
+        lireInput(valeurEntree,tableauGolmons);
+    }
     if (event.key === "Enter") {
         let nomTrouve = tableauGolmons.some(function(balise) {
             return balise.id === valeurEntree;
@@ -41,23 +43,21 @@ function uidhuisnfsi(event){
     console.log(event.key);
 }
 
-function lireInput(valeurEntree,tableauGolmons,entreeModif) {
+function lireInput(valeurEntree,tableauGolmons) {
     let i=valeurEntree.length;
     let test=true;
     for (k=0;k<10;k++){
-        if (entreeModif){
-            for (let p=0;p<i;p++){
-                if (!(valeurEntree[p]===tableauGolmons[k].id[i])){
-                    test=false;
-                }
-                console.log(test);
+        for (let p=0;p<i;p++){
+            if (!(valeurEntree[p]===tableauGolmons[k].id[i])){
+                test=false;
             }
-            if (test){
-                afficherBloc("D" + tableauGolmons[k].id);
-            }
-            else {
-                cacherLigne("D" + tableauGolmons[k].id);
-            }
+            console.log(test);
+        }
+        if (test){
+            afficherBloc("D" + tableauGolmons[k].id);
+        }
+        else {
+            cacherLigne("D" + tableauGolmons[k].id);
         }
     }
 }
