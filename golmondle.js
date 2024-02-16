@@ -19,7 +19,6 @@ function verifierTouche(event) {
     let valeurEntree = document.getElementById("entree").value;
     let i=valeurEntree.length;
     let tableauGolmons = Array.from(document.getElementsByClassName("golmon"));
-    let lettre=event.key;
     let nlettre=event.keyCode;
     let entreeLettre=(nlettre >= 65 && nlettre <= 90) || (nlettre >= 97 && nlettre <= 122);
     let entreeModif = entreeLettre || (nlettre == 8);
@@ -51,6 +50,7 @@ function lireInput(valeurEntree,tableauGolmons,entreeModif) {
                 if (!(valeurEntree[p]===tableauGolmons[k].id[i])){
                     test=false;
                 }
+                console.log(test);
             }
             if (test){
                 afficherBloc("D" + tableauGolmons[k].id);
