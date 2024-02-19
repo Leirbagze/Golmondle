@@ -15,8 +15,10 @@ function afficherBloc(golnom) {
     ligne.style.display = "block";
 }
 
+let valeurEntree = "";
 function verifierTouche(event) {
-    let valeurEntree = document.getElementById("entree").value;
+    valeurEntree = document.getElementById("entree").value;
+    console.log(valeurEntree);
     let i=valeurEntree.length;
     let tableauGolmons = Array.from(document.getElementsByClassName("golmon"));
     let nlettre=event.keyCode;
@@ -46,14 +48,9 @@ function uidhuisnfsi(event){
 function lireInput(valeurEntree,tableauGolmons) {
     let i=valeurEntree.length;
     let test=true;
+    console.log(valeurEntree);
     for (k=0;k<10;k++){
-        for (let p=0;p<i;p++){
-            if (!(valeurEntree[p]===tableauGolmons[k].id[i])){
-                test=false;
-            }
-            console.log(test);
-        }
-        if (test){
+        if (tableauGolmons[k].id.includes(valeurEntree)){
             afficherBloc("D" + tableauGolmons[k].id);
         }
         else {
