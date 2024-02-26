@@ -1,60 +1,72 @@
 const N = 20;
 
 function cacherLigne(golnom) {
-    let ligneACacher = document.getElementById(golnom);
-    ligneACacher.style.display = "none";
+    let ligne = document.getElementById(golnom);
+    if (ligne != null){
+        ligne.style.display = "none";
+    }
 }
 
 function afficherLigne(golnom) {
     let ligne = document.getElementById(golnom);
-    ligne.style.display = "table-row";
+    if (ligne != null){
+        ligne.style.display = "table-row";
+    }
 }
 
 function afficherBloc(golnom) {
-    let ligne = document.getElementById(golnom);
-    ligne.style.display = "block";
+    let bloc = document.getElementById(golnom);
+    if (bloc != null){
+        bloc.style.display = "block";
+    }
 }
 
-let valeurEntree = "";
+function supprimerBloc(golnom){
+    bloc = document.getElementById(golnom);
+    if (bloc != null){
+        bloc.remove();
+    }
+}
+
+let test="";
 function verifierTouche(event) {
-    valeurEntree = document.getElementById("entree").value;
+    let valeurEntree = document.getElementById("entree").value;
     console.log(valeurEntree);
-    let i=valeurEntree.length;
     let tableauGolmons = Array.from(document.getElementsByClassName("golmon"));
     let nlettre=event.keyCode;
     let entreeLettre=(nlettre >= 65 && nlettre <= 90) || (nlettre >= 97 && nlettre <= 122);
     let entreeModif = entreeLettre || (nlettre == 8);
     if (entreeModif){
-        lireInput(valeurEntree,tableauGolmons);
+        test=lireInput(valeurEntree,tableauGolmons,test);
     }
     if (event.key === "Enter") {
         let nomTrouve = tableauGolmons.some(function(balise) {
-            return balise.id === valeurEntree;
+            return balise.id.includes(valeurEntree);
         });
         if (nomTrouve){
-            afficherLigne(valeurEntree);
-            cacherLigne("D" + valeurEntree);
+            afficherLigne(test);
+            supprimerBloc("D" + test);
             document.getElementById("entree").value = "";
+            test="";
         }
     }
 }
 
-function uidhuisnfsi(event){
-    let entreeLettre=(event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122);
-    console.log(entreeLettre || (event.keyCode == 8));
-    console.log(event.key);
-}
-
-function lireInput(valeurEntree,tableauGolmons) {
+function lireInput(valeurEntree,tableauGolmons,test) {
     console.log(valeurEntree);
     for (k=0;k<10;k++){
         if ((tableauGolmons[k].id.includes(valeurEntree)) && valeurEntree!=""){
+            if (test===""){
+                test=tableauGolmons[k].id;
+                console.log("test : "+test);
+            }
             afficherBloc("D" + tableauGolmons[k].id);
         }
         else {
             cacherLigne("D" + tableauGolmons[k].id);
         }
     }
+    return test;
 }
 
 function completer(golmon){
@@ -64,7 +76,7 @@ function completer(golmon){
     });
     if (nomTrouve){
         afficherLigne(golmon);
-        cacherLigne("D" + golmon);
+        supprimerLigne("D" + golmon);
         document.getElementById("entree").value = "";
     }
 }
