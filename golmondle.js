@@ -46,11 +46,9 @@ function uidhuisnfsi(event){
 }
 
 function lireInput(valeurEntree,tableauGolmons) {
-    let i=valeurEntree.length;
-    let test=true;
     console.log(valeurEntree);
     for (k=0;k<10;k++){
-        if (tableauGolmons[k].id.includes(valeurEntree)){
+        if ((tableauGolmons[k].id.includes(valeurEntree)) && valeurEntree!=""){
             afficherBloc("D" + tableauGolmons[k].id);
         }
         else {
