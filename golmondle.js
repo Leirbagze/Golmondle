@@ -1,5 +1,10 @@
 const N = 20;
 
+
+import data from './data.json' assert { type: 'json' };
+
+console.log(data);
+
 function cacherLigne(golnom) {
     let ligne = document.getElementById(golnom);
     if (ligne != null){
