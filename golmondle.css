@@ -100,9 +100,6 @@ th:nth-child(2n) {
     border-bottom: 5px solid rgb(230, 230, 230);
 }
 
-.afficher {
-    display: table-row;
-}
 tr {
     display: none;
 }
@@ -175,6 +172,4 @@ table {
 
 a:hover {
     background-color: rgb(255, 238, 0);
-
-
 }
