@@ -60,6 +60,7 @@ function verifierTouche(event) {
         }
         document.getElementById("entree").value = "";
         lireInput(document.getElementById("entree").value);
+        //tableau.splice(index, 1); ENLEVER L'ELEMENT
     }
 }
 
