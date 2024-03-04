@@ -20,7 +20,7 @@ function ajouterLigne(golmon) {
 }
 
 function ajouterGolmon(golnom){
-    for (let i=0;i<7;i++){
+    for (let i=0;i<11;i++){
         if (tableau[i].golnom.includes(golnom)){
             ajouterLigne(tableau[i]);
         }
@@ -36,28 +36,46 @@ function Naff(golnom) {
     let content = document.getElementById(golnom);
     if (content != null){
         content.style.display = "none";
-        console.log("content null");
     }
 }
 
+var dropdown=new Array(11);
 function verifierTouche(event) {
     let valeurEntree = document.getElementById("entree").value;
     let nlettre=event.keyCode;
     let entreeLettre=(nlettre >= 65 && nlettre <= 90) || (nlettre >= 97 && nlettre <= 122);
     let entreeModif = entreeLettre || (nlettre == 8);
     if (entreeModif){
-        lireInput(valeurEntree);
+        dropdown=lireInput(valeurEntree);
+    }
+    else if (event.key === "Enter"){
+        let i=0;
+        let ziuegbziu=true;
+        while ((i<11) && (ziuegbziu)){
+            if (dropdown[i]==i){
+                ajouterGolmon(tableau[i].golnom);
+                ziuegbziu = false;
+            }
+            i++;
+        }
+        document.getElementById("entree").value = "";
+        lireInput(document.getElementById("entree").value);
     }
 }
 
 function lireInput(valeurEntree){
+    let dropdownVisible = new Array(11);
+    let section = new Array(11);
     for (i=0;i<11;i++){
-        console.log("itération : "+i);
-        if (tableau[i].golnom.includes(valeurEntree) && valeurEntree != ""){
+        section[i]=tableau[i].golnom.slice(0,valeurEntree.length);
+        console.log(section);
+        if (section[i].includes(valeurEntree) && valeurEntree != ""){
             affDropdown(tableau[i].golnom);
+            dropdownVisible[i]=i;
         }
         else {
             Naff(tableau[i].golnom);
         }
     }
+    return dropdownVisible;
 }
