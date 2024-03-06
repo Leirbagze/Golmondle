@@ -5,6 +5,11 @@
     src: url("../content/Rumpelstiltskin-EPdj.ttf");
 }
 
+body {
+    font-family: Helvetica, sans-serif;
+    background-color: #e3e3e1;
+}
+
 table {
     border-spacing: 7.5px;
     width:50%;
@@ -16,6 +21,13 @@ table {
     background-color: rgb(202, 124, 87);
 
     
+}
+
+th {
+    color: white;
+    width: 5em;
+    height: 5em;
+    border-bottom: 5px solid rgb(255, 255, 255);
 }
 
 td {

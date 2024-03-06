@@ -2,7 +2,7 @@ var nbGolmons=11;
 
 function ajouterLigne(golmon) {
     let tableau = document.getElementById("tableau").getElementsByTagName('tbody')[0];
-    let newRow = tableau.insertRow();
+    let newRow = tableau.insertBefore(document.createElement('tr'),tableau.rows[0]);
 
     let Golnom = newRow.insertCell(0);
     let Sexe = newRow.insertCell(1);
@@ -81,6 +81,17 @@ function lireInput(valeurEntree){
         }
     }
     return dropdownVisible;
+}
+
+function caca(){
+    var prout = new Audio('../content/prout.mp3');
+    prout.play();
+}
+
+function changerCouleur(index, couleur){
+    let ligne=document.getElementsByTagName("tr");
+    let attribut=ligne[1].getElementsByTagName("td");
+    attribut[index].style.backgroundColor = couleur;
 }
 
 function test(){
