@@ -56,6 +56,7 @@ function verifierTouche(event) {
         while ((i<nbGolmons) && (ziuegbziu)){
             if (dropdown[i]==i){
                 ajouterGolmon(tableau[i].golnom);
+                comparaison(tableau[i]);
                 document.getElementById("entree").value = "";
                 lireInput(document.getElementById("entree").value);
                 tableau.splice(i,1);
@@ -92,6 +93,12 @@ function changerCouleur(index, couleur){
     let ligne=document.getElementsByTagName("tr");
     let attribut=ligne[1].getElementsByTagName("td");
     attribut[index].style.backgroundColor = couleur;
+}
+
+function comparaison(golmon){
+    if (golmon.golnom===golmonDuJour.golnom){
+        changerCouleur(0,'blue');
+    }
 }
 
 function test(){
