@@ -1,3 +1,5 @@
+var nbGolmons=11;
+
 function ajouterLigne(golmon) {
     let tableau = document.getElementById("tableau").getElementsByTagName('tbody')[0];
     let newRow = tableau.insertRow();
@@ -20,7 +22,7 @@ function ajouterLigne(golmon) {
 }
 
 function ajouterGolmon(golnom){
-    for (let i=0;i<11;i++){
+    for (let i=0;i<nbGolmons;i++){
         if (tableau[i].golnom.includes(golnom)){
             ajouterLigne(tableau[i]);
         }
@@ -39,7 +41,7 @@ function Naff(golnom) {
     }
 }
 
-var dropdown=new Array(11);
+var dropdown=new Array(nbGolmons);
 function verifierTouche(event) {
     let valeurEntree = document.getElementById("entree").value;
     let nlettre=event.keyCode;
@@ -51,25 +53,25 @@ function verifierTouche(event) {
     else if (event.key === "Enter"){
         let i=0;
         let ziuegbziu=true;
-        while ((i<11) && (ziuegbziu)){
+        while ((i<nbGolmons) && (ziuegbziu)){
             if (dropdown[i]==i){
                 ajouterGolmon(tableau[i].golnom);
+                document.getElementById("entree").value = "";
+                lireInput(document.getElementById("entree").value);
+                tableau.splice(i,1);
+                nbGolmons--;
                 ziuegbziu = false;
             }
             i++;
         }
-        document.getElementById("entree").value = "";
-        lireInput(document.getElementById("entree").value);
-        //tableau.splice(index, 1); ENLEVER L'ELEMENT
     }
 }
 
 function lireInput(valeurEntree){
-    let dropdownVisible = new Array(11);
-    let section = new Array(11);
-    for (i=0;i<11;i++){
+    let dropdownVisible = new Array(nbGolmons);
+    let section = new Array(nbGolmons);
+    for (i=0;i<nbGolmons;i++){
         section[i]=tableau[i].golnom.slice(0,valeurEntree.length);
-        console.log(section);
         if (section[i].includes(valeurEntree) && valeurEntree != ""){
             affDropdown(tableau[i].golnom);
             dropdownVisible[i]=i;
@@ -79,4 +81,8 @@ function lireInput(valeurEntree){
         }
     }
     return dropdownVisible;
+}
+
+function test(){
+    console.log(tableau);
 }
