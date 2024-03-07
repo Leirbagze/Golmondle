@@ -101,12 +101,4 @@ var tableau =
     }
 ]
 
-var golmonDuJour = {
-    "golnom": "Yan",
-    "sexe": "masculin",
-    "QI": 84,
-    "racisme": 70,
-    "rank_babyfoot": 5,
-    "humour": "gênant",
-    "DC": 72
-}
+var golmonDuJour = 0;

@@ -51,7 +51,7 @@ function verifierTouche(event) {
         dropdown=lireInput(valeurEntree);
     }
     else if (event.key === "Enter"){
-        let ksjgnsojgnoigsg = completer();
+        completer();
     }
 }
 
@@ -79,16 +79,17 @@ function completer(){
         if (dropdown[i]==i){
             ajouterGolmon(tableau[i].golnom);
             document.getElementById("entree").value = "";
-            lireInput(document.getElementById("entree").value);
+            lireInput(document.getElementById("entree").value); //update dropdown
             test=comparaison(tableau[i]);
-            console.log(test);
             tableau.splice(i,1);
             nbGolmons--;
             ziuegbziu = false;
         }
         i++;
     }
-    return test;
+    if (test){
+        fin();
+    }
 }
 
 function caca(){
@@ -106,20 +107,20 @@ function comparaison(golmon){
     let fin = new Array(7);
     for (k=0;k<7;k++) fin[k]=false;
 
-    if (golmon.golnom === golmonDuJour.golnom){
+    if (golmon.golnom === tableau[golmonDuJour].golnom){
         changerCouleur(0,'juste');
         fin[0] = true;
     }
 
-    if (golmon.sexe === golmonDuJour.sexe){
+    if (golmon.sexe === tableau[golmonDuJour].sexe){
         changerCouleur(1,'juste');
         fin[1] = true;
     }
 
-    if (golmon.QI < golmonDuJour.QI){
+    if (golmon.QI < tableau[golmonDuJour].QI){
         changerCouleur(2,'moins');
     }
-    else if (golmon.QI > golmonDuJour.QI){
+    else if (golmon.QI > tableau[golmonDuJour].QI){
         changerCouleur(2,'plus');
     }
     else {
@@ -127,10 +128,10 @@ function comparaison(golmon){
         fin[2] = true;
     }
 
-    if (golmon.racisme < golmonDuJour.racisme){
+    if (golmon.racisme < tableau[golmonDuJour].racisme){
         changerCouleur(3,'moins');
     }
-    else if (golmon.racisme > golmonDuJour.racisme){
+    else if (golmon.racisme > tableau[golmonDuJour].racisme){
         changerCouleur(3,'plus');
     }
     else {
@@ -138,10 +139,10 @@ function comparaison(golmon){
         fin[3] = true;
     }
 
-    if (golmon.rank_babyfoot > golmonDuJour.rank_babyfoot){
+    if (golmon.rank_babyfoot > tableau[golmonDuJour].rank_babyfoot){
         changerCouleur(4,'moins');
     }
-    else if (golmon.rank_babyfoot < golmonDuJour.rank_babyfoot){
+    else if (golmon.rank_babyfoot < tableau[golmonDuJour].rank_babyfoot){
         changerCouleur(4,'plus');
     }
     else {
@@ -149,18 +150,18 @@ function comparaison(golmon){
         fin[4] = true;
     }
 
-    if (golmon.humour === golmonDuJour.humour){
+    if (golmon.humour === tableau[golmonDuJour].humour){
         changerCouleur(5,'juste');
         fin[5] = true;
     }
-    else if (golmonDuJour.humour.includes(golmon.humour)){
+    else if (tableau[golmonDuJour].humour.includes(golmon.humour)){
         changerCouleur(5,'partiel');
     }
 
-    if (golmon.DC < golmonDuJour.DC){
+    if (golmon.DC < tableau[golmonDuJour].DC){
         changerCouleur(6,'moins');
     }
-    else if (golmon.DC > golmonDuJour.DC){
+    else if (golmon.DC > tableau[golmonDuJour].DC){
         changerCouleur(6,'plus');
     }
     else {
@@ -178,6 +179,13 @@ function comparaison(golmon){
     }
 }
 
+function fin(){
+    let entree = document.getElementsByTagName("entree");
+    entree[0].remove();
+    let victoire = document.getElementsByTagName("victoire");
+    victoire[0].style.display = 'flex';
+}
+
 function test(){
-    console.log(tableau);
+    fin();
 }

@@ -14,13 +14,10 @@ table {
     border-spacing: 7.5px;
     width:50%;
     margin: auto;
-
     font-size: 0.8rem;
     font-weight: bold;
     letter-spacing: 1px;
     background-color: rgb(202, 124, 87);
-
-    
 }
 
 th {
@@ -75,6 +72,15 @@ entree > button {
 entree > button:hover {
     background-color: rgb(255, 238, 0);
     cursor: pointer;
+}
+
+victoire {
+    width:100%;
+    margin: auto;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 5em;
 }
 
 input {
