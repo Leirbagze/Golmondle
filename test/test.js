@@ -53,12 +53,14 @@ function verifierTouche(event) {
     else if (event.key === "Enter"){
         let i=0;
         let ziuegbziu=true;
+        let test;
         while ((i<nbGolmons) && (ziuegbziu)){
             if (dropdown[i]==i){
                 ajouterGolmon(tableau[i].golnom);
-                comparaison(tableau[i]);
                 document.getElementById("entree").value = "";
                 lireInput(document.getElementById("entree").value);
+                test=comparaison(tableau[i]);
+                console.log(test);
                 tableau.splice(i,1);
                 nbGolmons--;
                 ziuegbziu = false;
@@ -84,6 +86,25 @@ function lireInput(valeurEntree){
     return dropdownVisible;
 }
 
+function completer(){
+    let i=0;
+    let ziuegbziu=true;
+    let test;
+    while ((i<nbGolmons) && (ziuegbziu)){
+        if (dropdown[i]==i){
+            ajouterGolmon(tableau[i].golnom);
+            document.getElementById("entree").value = "";
+            lireInput(document.getElementById("entree").value);
+            test=comparaison(tableau[i]);
+            console.log(test);
+            tableau.splice(i,1);
+            nbGolmons--;
+            ziuegbziu = false;
+        }
+        i++;
+    }
+}
+
 function caca(){
     var prout = new Audio('../content/prout.mp3');
     prout.play();
@@ -92,12 +113,82 @@ function caca(){
 function changerCouleur(index, couleur){
     let ligne=document.getElementsByTagName("tr");
     let attribut=ligne[1].getElementsByTagName("td");
-    attribut[index].style.backgroundColor = couleur;
+    attribut[index].classList.add(couleur);
 }
 
 function comparaison(golmon){
-    if (golmon.golnom===golmonDuJour.golnom){
-        changerCouleur(0,'blue');
+    let fin = new Array(7);
+    for (k=0;k<7;k++) fin[k]=false;
+
+    if (golmon.golnom === golmonDuJour.golnom){
+        changerCouleur(0,'juste');
+        fin[0] = true;
+    }
+
+    if (golmon.sexe === golmonDuJour.sexe){
+        changerCouleur(1,'juste');
+        fin[1] = true;
+    }
+
+    if (golmon.QI < golmonDuJour.QI){
+        changerCouleur(2,'moins');
+    }
+    else if (golmon.QI > golmonDuJour.QI){
+        changerCouleur(2,'plus');
+    }
+    else {
+        changerCouleur(2,'juste');
+        fin[2] = true;
+    }
+
+    if (golmon.racisme < golmonDuJour.racisme){
+        changerCouleur(3,'moins');
+    }
+    else if (golmon.racisme > golmonDuJour.racisme){
+        changerCouleur(3,'plus');
+    }
+    else {
+        changerCouleur(3,'juste');
+        fin[3] = true;
+    }
+
+    if (golmon.rank_babyfoot > golmonDuJour.rank_babyfoot){
+        changerCouleur(4,'moins');
+    }
+    else if (golmon.rank_babyfoot < golmonDuJour.rank_babyfoot){
+        changerCouleur(4,'plus');
+    }
+    else {
+        changerCouleur(4,'juste');
+        fin[4] = true;
+    }
+
+    if (golmon.humour === golmonDuJour.humour){
+        changerCouleur(5,'juste');
+        fin[5] = true;
+    }
+    else if (golmonDuJour.humour.includes(golmon.humour)){
+        changerCouleur(5,'partiel');
+    }
+
+    if (golmon.DC < golmonDuJour.DC){
+        changerCouleur(6,'moins');
+    }
+    else if (golmon.DC > golmonDuJour.DC){
+        changerCouleur(6,'plus');
+    }
+    else {
+        changerCouleur(6,'juste');
+        fin[6] = true;
+    }
+
+    for (k=0;k<7;k++){
+        if (!fin[k]){
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }
 
