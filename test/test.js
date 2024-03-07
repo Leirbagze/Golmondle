@@ -51,22 +51,7 @@ function verifierTouche(event) {
         dropdown=lireInput(valeurEntree);
     }
     else if (event.key === "Enter"){
-        let i=0;
-        let ziuegbziu=true;
-        let test;
-        while ((i<nbGolmons) && (ziuegbziu)){
-            if (dropdown[i]==i){
-                ajouterGolmon(tableau[i].golnom);
-                document.getElementById("entree").value = "";
-                lireInput(document.getElementById("entree").value);
-                test=comparaison(tableau[i]);
-                console.log(test);
-                tableau.splice(i,1);
-                nbGolmons--;
-                ziuegbziu = false;
-            }
-            i++;
-        }
+        let ksjgnsojgnoigsg = completer();
     }
 }
 
@@ -103,6 +88,7 @@ function completer(){
         }
         i++;
     }
+    return test;
 }
 
 function caca(){
