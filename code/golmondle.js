@@ -111,9 +111,6 @@ function comparaison(golmon){
         changerCouleur(0,'juste');
         fin[0] = true;
     }
-    console.log(golmon.golnom);
-    console.log(golmonDuJour.golnom);
-    console.log(golmon.golnom === golmonDuJour.golnom);
 
     if (golmon.sexe === golmonDuJour.sexe){
         changerCouleur(1,'juste');
@@ -157,7 +154,7 @@ function comparaison(golmon){
         changerCouleur(5,'juste');
         fin[5] = true;
     }
-    else if (golmonDuJour.humour.includes(golmon.humour)){
+    else if (golmonDuJour.humour.includes(golmon.humour) || golmon.humour.includes(golmonDuJour.humour)){
         changerCouleur(5,'partiel');
     }
 

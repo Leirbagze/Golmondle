@@ -108,12 +108,12 @@ let listeNombres = [429,337,611,989,270,19,905,704,349,681,132,42,677,395,939,43
 var date = new Date();
 var heure = date.getTime();
 console.log(date);
+console.log(heure);
 date.setTime(heure + (13*60*60*1000));
 date.setHours(0,0,0,0);
 console.log(date);
 console.log(heure);
 
-
-
 var nGdJ = listeNombres[date%listeNombres.length]%tableau.length;
 var golmonDuJour = tableau[nGdJ];
+console.log(golmonDuJour);
