@@ -21,7 +21,7 @@ var tableau =
     {
       "golnom": "Gabriel",
       "sexe": "masculin",
-      "QI": 70,
+      "QI": 150,
       "racisme": 80,
       "rank_babyfoot": 4,
       "humour": "😐",
@@ -115,5 +115,9 @@ console.log(date);
 
 
 
-var golmonDuJour = listeNombres[date%listeNombres.length]%tableau.length;
+var nGdJ = listeNombres[date%listeNombres.length]%tableau.length;
+
+var golmonDuJour = tableau[nGdJ];
+
 console.log(golmonDuJour);
+console.log(nGdJ);
