@@ -31,7 +31,7 @@ td {
     text-align: center;
     color: white;
     text-shadow: 0 0 3px #000;
-    background-image:  url("content/uparrow.png");
+    background-image:  url("../content/uparrow.png");
     background-color: rgb(224, 59, 59);
     border: 1px solid rgb(255, 255, 255);
     box-shadow: inset 0 0 6px #000;
