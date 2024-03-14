@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tableau Dynamique</title>
+        <link rel="stylesheet" type="text/css" href="test.css" />
+        <script type="text/javascript" src="data.js"></script>
+        <script type="text/javascript" src="test.js"></script>
+    </head>
+    <body>
+        <button onclick="test()">console</button>
+        <div class="dropdown">
+            <h1 class="titre">Golmondle</h1>
+            <h1>Devinez le Golmon du jour</h1>
+            <entree>
+                <input id="entree" type="text" placeholder="Entrez un golmon pour commencer" onkeyup="verifierTouche(event)" value=""/>
+                <button onclick="caca()">💩</button>
+            </entree>
+            <victoire>
+                <h1>Bravo ! Revenez demain pour un nouveau golmon !</h1>
+            </victoire>
+            </body>
+            <div class="dropdown-content">
+                <a id="Yan" onclick="completer('Yan')">Yan</a>
+                <a id="Sylvain" onclick="completer('Sylvain')">Sylvain</a>
+                <a id="Gabriel" onclick="completer('Gabriel')" >Gabriel</a>
+                <a id="Paul" onclick="completer('Paul')">Paul</a>
+                <a id="Gabin" onclick="completer('Gabin')">Gabin</a>
+                <a id="Clementine" onclick="completer('Clémentine')">Clémentine</a>
+                <a id="Etienne" onclick="completer('Etienne')">Etienne</a>
+                <a id="Rayan" onclick="completer('Rayan')">Rayan</a>
+                <a id="Mael" onclick="completer('Mael')">Mael</a>
+                <a id="Quentin" onclick="completer('Quentin')">Quentin</a>
+                <a id="Nylan" onclick="completer('Nylan')">Nylan</a>
+            </div>
+        </div>
+        <table id="tableau">
+            <thead>
+                <tr>
+                    <th>Golnom</th>
+                    <th>Sexe</th>
+                    <th>QI</th>
+                    <th>Racisme</th>
+                    <th>Rank babyfoot</th>
+                    <th>Humour</th>
+                    <th>DC (kg)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les lignes du tableau seront ajoutées ici dynamiquement -->
+            </tbody>
+        </table>
+    </body>
+</html>
