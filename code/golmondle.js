@@ -15,7 +15,7 @@ function ajouterLigne(golmon) {
     Golnom.innerHTML = golmon.golnom;
     Sexe.innerHTML = golmon.sexe;
     QI.innerHTML = golmon.QI;
-    Racisme.innerHTML = golmon.racisme;
+    Racisme.innerHTML = golmon.racisme + '%';
     Rank.innerHTML = golmon.rank_babyfoot;
     Humour.innerHTML = golmon.humour;
     DC.innerHTML = golmon.DC;
@@ -93,7 +93,7 @@ function completer(){
 }
 
 function caca(){
-    var prout = new Audio('../content/prout.mp3');
+    var prout = new Audio('content/prout.mp3');
     prout.play();
 }
 
