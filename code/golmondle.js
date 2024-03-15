@@ -184,6 +184,7 @@ function fin(){
     entree[0].remove();
     let victoire = document.getElementsByTagName("victoire");
     victoire[0].style.display = 'block';
+    countdown();
 }
 
 const init = new Date().getTime() / (1000*60*60*24); // Date de lancement du programme (jour)
@@ -217,5 +218,4 @@ function countdown() {
 
 function test(){
     // FAIRE MODE DALTONIEN
-    countdown();
 }
