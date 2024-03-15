@@ -5,6 +5,8 @@
     src: url("../content/Rumpelstiltskin-EPdj.ttf");
 }
 
+
+
 body {
     font-family: Helvetica, sans-serif;
     background-color: #e3e3e1;
@@ -24,6 +26,10 @@ th {
     color: white;
     width: 5em;
     height: 5em;
+    max-width: 5em;
+    max-height: 5em;
+    min-width: 5em;
+    min-height: 5em;
     border-bottom: 5px solid rgb(255, 255, 255);
 }
 
@@ -39,6 +45,8 @@ td {
     height: 5em;
     max-width: 5em;
     max-height: 5em;
+    min-width: 5em;
+    min-height: 5em;
     overflow: hidden;
 }
 
@@ -176,4 +184,46 @@ input {
     box-shadow: inset 0 0 6px #000;
     width: 5em;
     height: 5em;
+}
+
+
+@media screen and (max-width: 1200px) {
+    body {
+        background-color:rgb(165, 98, 67);
+        overflow: hidden hidden;
+        width: 100%;
+        height: 100%;
+        margin:0;
+        padding:0;
+    }
+    .mainContainer {
+        width: 100%;
+    }
+
+    
+    .dropdown {
+        width: 100%;
+        
+    }
+
+    table {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        overflow-x: scroll;
+        flex-grow: 1;
+        -webkit-overflow-scrolling: touch;
+        margin: 0;
+    }
+
+    .scroll {
+        margin: 0;
+        display: flex;
+        
+        overflow: hidden;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+
 }

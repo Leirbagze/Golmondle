@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tableau Dynamique</title>
+        <title>Golmondle</title>
         <link rel="stylesheet" type="text/css" href="code/golmondle.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
         <script type="text/javascript" src="code/data.js"></script>
         <script type="text/javascript" src="code/golmondle.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <button onclick="test()">console</button>
@@ -37,21 +38,23 @@
                 <h1 id="countdown"></h1>
             </victoire>
         </div>
-        <table id="tableau">
-            <thead>
-                <tr>
-                    <th>Golnom</th>
-                    <th>Sexe</th>
-                    <th>QI</th>
-                    <th>Racisme</th>
-                    <th>Rank babyfoot</th>
-                    <th>Humour</th>
-                    <th>DC (kg)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Les lignes du tableau seront ajoutées ici dynamiquement -->
-            </tbody>
-        </table>
+        <div class ="scroll">
+            <table id="tableau">
+                <thead>
+                    <tr>
+                        <th>Golnom</th>
+                        <th>Sexe</th>
+                        <th>QI</th>
+                        <th>Racisme</th>
+                        <th>Rank babyfoot</th>
+                        <th>Humour</th>
+                        <th>DC (kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Les lignes du tableau seront ajoutées ici dynamiquement -->
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>
