@@ -183,7 +183,7 @@ function fin(){
     let entree = document.getElementsByTagName("entree");
     entree[0].remove();
     let victoire = document.getElementsByTagName("victoire");
-    victoire[0].style.display = 'flex';
+    victoire[0].style.display = 'block';
 }
 
 const init = new Date().getTime() / (1000*60*60*24); // Date de lancement du programme (jour)
@@ -193,12 +193,22 @@ function countdown() {
     let difference = (targetDate-1000*60*60) - now; // Calculer la différence entre la date cible et la date actuelle
   
     // Calculer les jours, heures, minutes et secondes restantes
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    if (hours < 10){
+        hours = '0' + hours;
+    }
+    if (minutes < 10){
+        minutes = '0' + minutes;
+    }
+    if (seconds < 10){
+        seconds = '0' + seconds;
+    }
   
     // Afficher le compte à rebours sur la page web
-    document.getElementById('countdown').innerHTML = `${hours} : ${minutes} : ${seconds}`;
+    document.getElementById('countdown').innerHTML = `${hours}:${minutes}:${seconds}`;
   
     // Actualiser le compte à rebours toutes les secondes
     setTimeout(countdown, 1000);
