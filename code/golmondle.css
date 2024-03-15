@@ -242,8 +242,8 @@ input {
         margin: 0;
         display: flex;
         
-        overflow: hidden;
         overflow-x: scroll;
+        overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
     }
 
