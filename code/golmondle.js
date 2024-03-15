@@ -186,6 +186,26 @@ function fin(){
     victoire[0].style.display = 'flex';
 }
 
+const init = new Date().getTime() / (1000*60*60*24); // Date de lancement du programme (jour)
+function countdown() {
+    let targetDate = Math.ceil(init)*(1000*60*60*24); // Date cible (convertie en s)
+    let now = new Date().getTime(); // Date actuelle
+    let difference = (targetDate-1000*60*60) - now; // Calculer la différence entre la date cible et la date actuelle
+  
+    // Calculer les jours, heures, minutes et secondes restantes
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  
+    // Afficher le compte à rebours sur la page web
+    document.getElementById('countdown').innerHTML = `${hours} : ${minutes} : ${seconds}`;
+  
+    // Actualiser le compte à rebours toutes les secondes
+    setTimeout(countdown, 1000);
+}
+
+
 function test(){
-    fin();
+    // FAIRE MODE DALTONIEN
+    countdown();
 }
