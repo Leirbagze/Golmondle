@@ -54,6 +54,15 @@ h2 {
     margin:0.1em;
 }
 
+.mainContainer {
+    background-color:rgb(165, 98, 67);
+    color:#f9f9f9;
+    width: 50%;
+    position: relative;
+    display: table;
+    margin: 0 auto;
+}
+
 entree {
     width:100%;
     margin: auto;
@@ -95,12 +104,9 @@ input {
 }
 
 .dropdown {
-    background-color:rgb(165, 98, 67);
-    color:#f9f9f9;
     width: 50%;
     position: relative;
     display: table;
-    margin: 0 auto;
 }
 
 .dropdown-content {
