@@ -44,6 +44,10 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+}
+
 .titre {
     font-family: Rumpelstillskin;
     font-size: 8em;
@@ -80,7 +84,6 @@ victoire {
     display: none;
     justify-content: center;
     align-items: center;
-    height: 5em;
 }
 
 input {
