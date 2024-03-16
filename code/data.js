@@ -105,6 +105,7 @@ var tableau =
 var listeNombres = new Array(300);
 var date = new Date();
 date.setHours(0,0,0,0);
+console.log(date.toLocaleDateString("fr-FR"))
 Math.seedrandom(date.toLocaleDateString("fr-FR")); // La date du jour sert comme seed, donc normalement elle change tout les jours à minuit
 nGdJ = Math.floor(Math.random()*(tableau.length));
 var golmonDuJour = tableau[nGdJ];
