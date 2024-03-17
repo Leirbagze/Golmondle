@@ -103,20 +103,8 @@ var tableau =
 
 
 var listeNombres = new Array(300);
-Math.seedrandom("hello");
-for (let i = 0; i < 300; i++) {
-    listeNombres[i]=Math.floor(Math.random()* (1000));
-}
-console.log(listeNombres);
-// RESET a minuit
 var date = new Date();
-var heure = date.getTime();
-console.log(date);
-console.log(heure);
 date.setHours(0,0,0,0);
-console.log(date);
-console.log(heure);
-
-var nGdJ = listeNombres[date%listeNombres.length]%tableau.length;
+Math.seedrandom(date.toDateString()); // La date du jour sert comme seed, donc normalement elle change tout les jours à minuit
+nGdJ = Math.floor(Math.random()*(tableau.length));
 var golmonDuJour = tableau[nGdJ];
-console.log(golmonDuJour);
