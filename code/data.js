@@ -108,12 +108,11 @@ for (let i = 0; i < 300; i++) {
     listeNombres[i]=Math.floor(Math.random()* (1000));
 }
 console.log(listeNombres);
-// En gros ça reset à 13h normalement
+// RESET a minuit
 var date = new Date();
 var heure = date.getTime();
 console.log(date);
 console.log(heure);
-date.setTime(heure + (13*60*60*1000));
 date.setHours(0,0,0,0);
 console.log(date);
 console.log(heure);

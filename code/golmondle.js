@@ -60,7 +60,7 @@ function lireInput(valeurEntree){
     let section = new Array(nbGolmons);
     for (i=0;i<nbGolmons;i++){
         section[i]=tableau[i].golnom.slice(0,valeurEntree.length);
-        if (section[i].includes(valeurEntree) && valeurEntree != ""){
+        if (section[i].toLowerCase().includes(valeurEntree.toLowerCase()) && valeurEntree != ""){
             affDropdown(tableau[i].golnom);
             dropdownVisible[i]=i;
         }
