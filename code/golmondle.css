@@ -242,7 +242,9 @@ input {
         margin: 0;
     }
 
-
+    .dropdown-content a {
+        display: block;
+    }
 
     .scroll {
         margin: 0;
