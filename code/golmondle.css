@@ -232,7 +232,7 @@ input {
     
     .dropdown {
         width: 100%;
-        
+        display: block;
     }
 
     table {
@@ -240,10 +240,6 @@ input {
         max-width: 100%;
         flex-grow: 1;
         margin: 0;
-    }
-
-    .dropdown-content {
-        display: block;
     }
 
     .scroll {
