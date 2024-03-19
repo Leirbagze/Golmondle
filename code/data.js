@@ -1,3 +1,5 @@
+var nbGolmons=11;
+
 var tableau =
 [
     {
@@ -101,11 +103,24 @@ var tableau =
     }
 ]
 
-
-var listeNombres = new Array(300);
 var date = new Date();
-date.setHours(0,0,0,0);
-console.log(date.toLocaleDateString("fr-FR"))
-Math.seedrandom(date.toLocaleDateString("fr-FR")); // La date du jour sert comme seed, donc normalement elle change tout les jours à minuit
-nGdJ = Math.floor(Math.random()*(tableau.length));
-var golmonDuJour = tableau[nGdJ];
+console.log(date.toLocaleDateString("fr-FR"));
+
+function nGdJ(){
+  var dateJour = Math.floor(new Date().getTime()/(1000*60*60*24));
+  var dateRef = dateJour % nbGolmons;
+  console.log("date jours : " + dateJour);
+  console.log("date ref : " + dateRef);
+  Math.seedrandom(dateRef);  // On prend la date du jour modulo 11 pour avoir une date de reset
+  let liste = new Array(nbGolmons);
+  let randint;
+  for (let i=0;i<nbGolmons;i++){
+    randint = Math.floor(Math.random()*(liste.length));
+    liste[i] = tableau[randint].golnom;
+  }
+  return liste;
+}
+console.log("fonction : " + nGdJ());
+
+console.log(nGdJ());
+var golmonDuJour = tableau[0];

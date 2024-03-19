@@ -1,5 +1,3 @@
-var nbGolmons=11;
-
 function ajouterLigne(golmon) {
     let tableau = document.getElementById("tableau").getElementsByTagName('tbody')[0];
     let newRow = tableau.insertBefore(document.createElement('tr'),tableau.rows[0]);
@@ -215,7 +213,7 @@ function countdown() {
     setTimeout(countdown, 1000);
 }
 
-
 function test(){
     // FAIRE MODE DALTONIEN
+    nGdJ();
 }
