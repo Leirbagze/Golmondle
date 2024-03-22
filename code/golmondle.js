@@ -215,5 +215,5 @@ function countdown() {
 
 function test(){
     // FAIRE MODE DALTONIEN
-    nGdJ();
+    console.log("fonction : " + nGdJ());
 }
