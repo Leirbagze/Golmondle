@@ -185,12 +185,13 @@ function fin(){
     countdown();
 }
 
-const init = new Date().getTime() / (1000*60*60*24); // Date de lancement du programme (jour)
 function countdown() {
-    let targetDate = Math.ceil(init)*(1000*60*60*24); // Date cible (convertie en s)
     let now = new Date().getTime(); // Date actuelle
     let difference = (targetDate-1000*60*60) - now; // Calculer la différence entre la date cible et la date actuelle
-  
+    if (difference <= 0){
+        location.reload();
+    }
+
     // Calculer les jours, heures, minutes et secondes restantes
     let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
@@ -214,6 +215,5 @@ function countdown() {
 }
 
 function test(){
-    // FAIRE MODE DALTONIEN
-    console.log("fonction : " + nGdJ());
+    console.log("a : " + nGdJ());
 }
